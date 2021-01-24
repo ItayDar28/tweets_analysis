@@ -6,26 +6,11 @@ import pandas as pd
 from datetime import datetime
 
 
-
-def get_name():
-    return 'Itay Dar'
-
-def get_id():
-    return 312541915
-
-"""
-
-    This class contain several functions that help
-
-    find part of the solution.
-
-    there is no logial connections between *all* the functions.
-
-    there is chronological connection between the functions.
-"""
-
 class Helpers:
 
+
+
+    def is_weighted(self,net):
     """
     @Name : is_weighted
     @Do: check if a given network contain weighted edges.
@@ -35,8 +20,6 @@ class Helpers:
             True if weighted else False
     """
 
-
-    def is_weighted(self,net):
         weighted = False
         for u,v in net.edges():
             if net.get_edge_data(u,v) != {}:
@@ -44,6 +27,8 @@ class Helpers:
                 break
         return weighted
 
+
+    def cluster(self,partition):
     '''
     @Name : cluster
     @Do: create data structure contains for each community the list of it's members
@@ -56,7 +41,6 @@ class Helpers:
                         where key = community identifier  & value = list of nodes belong to this community
     '''
 
-    def cluster(self,partition):
         result_dict = {}
         for key in partition.keys():
             if partition[key] in result_dict.keys():
